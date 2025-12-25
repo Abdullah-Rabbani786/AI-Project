@@ -305,12 +305,19 @@ with tabs[4]:
             n_jobs=-1
         )
         model.fit(X_train, y_train)
+        
+        # --- NEW CODE FROM IMAGE STARTS HERE ---
         preds = model.predict(X_test)
 
+        rmse = np.sqrt(mean_squared_error(y_test, preds))
+        mae = mean_absolute_error(y_test, preds)
+        r2 = r2_score(y_test, preds)
+
         c1, c2, c3 = st.columns(3)
-        c1.metric("RMSE", f"₹{mean_squared_error(y_test, preds, squared=False):,.0f}")
-        c2.metric("MAE", f"₹{mean_absolute_error(y_test, preds):,.0f}")
-        c3.metric("R²", f"{r2_score(y_test, preds):.4f}")
+        c1.metric("RMSE", f"₹{rmse:,.0f}")
+        c2.metric("MAE", f"₹{mae:,.0f}")
+        c3.metric("R²", f"{r2:.4f}")
+        # --- NEW CODE ENDS HERE ---
 
 # =====================================================
 # EXPORT
