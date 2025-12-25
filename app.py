@@ -128,7 +128,7 @@ st.markdown("""
 <div class="header-card">
   <h1>💻 Laptop Price Analytics Dashboard</h1>
   <p>Market Analysis & Machine Learning Price Prediction</p>
-  <p><b>Talha Bashir</b> | Roll No: 2430-0162 | PAI Course Project</p>
+  <p><b>Talha Bashir , Abdullah</b> | Roll No: 2430-0162 , 2430-0067 | PAI Course Project</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -222,8 +222,15 @@ with tabs[0]:
 # MARKET
 # =====================================================
 with tabs[1]:
+    # 1. Create a proper DataFrame with names and counts
+    share_df = filtered_df["Company"].value_counts().head(8).reset_index()
+    share_df.columns = ["Company", "Count"]
+
+    # 2. Explicitly tell Plotly what to use for names and values
     fig = px.pie(
-        filtered_df["Company"].value_counts().head(8),
+        share_df,
+        names="Company", 
+        values="Count",
         hole=0.4,
         title="Market Share by Company"
     )
