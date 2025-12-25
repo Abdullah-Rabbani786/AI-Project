@@ -20,108 +20,116 @@ st.set_page_config(
 )
 
 # =====================================================
-# PROFESSIONAL CORPORATE THEME
+# PAGE CONFIG
 # =====================================================
-# Using a Deep Navy & Slate palette for a clean, trustworthy look
-PRIMARY_COLOR = "#1E3A8A"     # Deep Navy Blue (Trustworthy)
-ACCENT_COLOR = "#3B82F6"      # Professional Blue (Highlight)
-BG_COLOR = "#F3F4F6"          # Very Light Cool Gray (Easy on eyes)
-CARD_BG = "#FFFFFF"           # Pure White
-TEXT_COLOR = "#111827"        # Near Black (High Contrast)
-SUBTEXT_COLOR = "#6B7280"     # Cool Gray
+st.set_page_config(
+    page_title="Laptop Price Analytics",
+    layout="wide",
+    page_icon="💻"
+)
+
+# =====================================================
+# PROFESSIONAL CORPORATE THEME (FIXED)
+# =====================================================
+PRIMARY_COLOR = "#2563EB"     # Professional Blue (Less dark, more vibrant)
+BG_COLOR = "#F8FAFC"          # Very Light Gray-Blue
+CARD_BG = "#FFFFFF"           # White
+TEXT_COLOR = "#1E293B"        # Slate 800 (High contrast dark gray)
+SUBTEXT_COLOR = "#64748B"     # Slate 500
 
 st.markdown(f"""
 <style>
 
-/* -------- App Background -------- */
-body {{
+/* -------- General App -------- */
+body, .stApp {{
   background-color: {BG_COLOR};
-}}
-
-/* Main layout spacing */
-.block-container {{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }}
 
 /* -------- Typography -------- */
 h1, h2, h3, h4, h5, h6 {{
   color: {TEXT_COLOR} !important;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif; /* Clean modern font */
 }}
 
-p, label, span {{
-  color: {SUBTEXT_COLOR} !important;
-  font-size: 0.95rem;
+p, div, label, span {{
+  color: {TEXT_COLOR};
 }}
 
-/* -------- Header Card -------- */
+/* -------- Header Card (FIXED) -------- */
 .header-card {{
-  background-color: {PRIMARY_COLOR}; /* Solid professional color */
+  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
   padding: 2rem;
-  border-radius: 8px; /* Sharper corners */
+  border-radius: 12px;
   margin-bottom: 2rem;
-  color: white;
-  border-left: 6px solid {ACCENT_COLOR}; /* Professional accent strip */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }}
 
-/* -------- Sidebar -------- */
-section[data-testid="stSidebar"] > div {{
-  background-color: #FFFFFF;
-  border-right: 1px solid #E5E7EB;
+/* Force Header Text to be White */
+.header-card h1 {{
+  color: #FFFFFF !important;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }}
 
-/* -------- Tabs -------- */
+.header-card p {{
+  color: #E2E8F0 !important; /* Light gray for subtitles */
+  font-size: 1rem;
+  margin: 0;
+}}
+
+/* -------- Tabs (Clean Underline Style) -------- */
 .stTabs [data-baseweb="tab-list"] {{
   background-color: transparent;
-  border-bottom: 2px solid #E5E7EB;
-  border-radius: 0px;
-  padding: 0;
-  gap: 20px;
+  gap: 2rem;
+  border-bottom: 1px solid #E2E8F0;
 }}
 
 .stTabs [data-baseweb="tab"] {{
   background-color: transparent;
   color: {SUBTEXT_COLOR};
   font-weight: 600;
-  border-radius: 0px;
-  padding: 0.8rem 1rem;
+  padding-bottom: 1rem;
   border: none;
-  transition: all 0.2s ease;
 }}
 
 .stTabs [aria-selected="true"] {{
-  background-color: transparent;
   color: {PRIMARY_COLOR} !important;
-  border-bottom: 3px solid {PRIMARY_COLOR}; /* Underline style for tabs */
+  border-bottom: 3px solid {PRIMARY_COLOR};
 }}
 
 /* -------- Metric Cards -------- */
 [data-testid="stMetric"] {{
   background-color: {CARD_BG};
-  border-radius: 8px; /* Sharper corners */
-  padding: 1rem;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}}
+
+[data-testid="stMetricLabel"] {{
+  color: {SUBTEXT_COLOR} !important;
+  font-size: 0.9rem;
+}}
+
+[data-testid="stMetricValue"] {{
+  color: {TEXT_COLOR} !important;
+  font-weight: 700;
 }}
 
 /* -------- Buttons -------- */
 .stButton > button {{
   background-color: {PRIMARY_COLOR};
   color: white;
-  border-radius: 6px;
-  font-weight: 500;
+  border-radius: 8px;
   border: none;
-  padding: 0.5rem 1.5rem;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  transition: background-color 0.15s ease-in-out;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s;
 }}
 
 .stButton > button:hover {{
-  background-color: {ACCENT_COLOR};
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: #1E40AF; /* Darker blue on hover */
+  transform: translateY(-1px);
 }}
 
 </style>
