@@ -24,10 +24,10 @@ st.set_page_config(
 # =====================================================
 PRIMARY_COLOR = "#2563EB"
 ACCENT_COLOR = "#38BDF8"
-BG_COLOR = "#F8FAFC"
-CARD_BG = "#FFFFFF"
+BG_COLOR = "#BA45B0"
+CARD_BG = "#BE3131"
 TEXT_COLOR = "#0F172A"
-SUBTEXT_COLOR = "#475569"
+SUBTEXT_COLOR = "#6BE298"
 
 st.markdown(f"""
 <style>
