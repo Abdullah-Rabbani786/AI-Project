@@ -29,107 +29,120 @@ st.set_page_config(
 )
 
 # =====================================================
-# PROFESSIONAL CORPORATE THEME (FIXED)
+# PAGE CONFIG
 # =====================================================
-PRIMARY_COLOR = "#2563EB"     # Professional Blue (Less dark, more vibrant)
-BG_COLOR = "#F8FAFC"          # Very Light Gray-Blue
-CARD_BG = "#FFFFFF"           # White
-TEXT_COLOR = "#1E293B"        # Slate 800 (High contrast dark gray)
-SUBTEXT_COLOR = "#64748B"     # Slate 500
+st.set_page_config(
+    page_title="Laptop Price Analytics",
+    layout="wide",
+    page_icon="💻"
+)
+
+# =====================================================
+# CLEAN & MINIMAL THEME
+# =====================================================
+# A soft, airy palette with no heavy dark blocks
+PRIMARY_COLOR = "#2563EB"      # A clean, standard blue for buttons only
+BG_COLOR = "#FAFAFA"           # Almost white (Very clean)
+CARD_BG = "#FFFFFF"            # Pure White
+TEXT_COLOR = "#334155"         # Slate 700 (Softer than black)
+HEADER_COLOR = "#0F172A"       # Slate 900 (Dark & crisp for titles)
 
 st.markdown(f"""
 <style>
 
-/* -------- General App -------- */
-body, .stApp {{
+/* -------- App Background -------- */
+.stApp {{
   background-color: {BG_COLOR};
 }}
 
 /* -------- Typography -------- */
-h1, h2, h3, h4, h5, h6 {{
-  color: {TEXT_COLOR} !important;
-  font-family: 'Inter', sans-serif; /* Clean modern font */
+h1, h2, h3 {{
+  color: {HEADER_COLOR} !important;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }}
 
-p, div, label, span {{
-  color: {TEXT_COLOR};
-}}
-
-/* -------- Header Card (FIXED) -------- */
+/* -------- Header Card (Clean White) -------- */
 .header-card {{
-  background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+  background-color: {CARD_BG};
   padding: 2rem;
   border-radius: 12px;
+  border: 1px solid #E2E8F0; /* Subtle border */
   margin-bottom: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Very soft shadow */
 }}
 
-/* Force Header Text to be White */
 .header-card h1 {{
-  color: #FFFFFF !important;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  color: {HEADER_COLOR} !important;
+  margin-bottom: 0.2rem;
 }}
 
 .header-card p {{
-  color: #E2E8F0 !important; /* Light gray for subtitles */
+  color: #64748B !important; /* Muted slate for subtitle */
   font-size: 1rem;
-  margin: 0;
 }}
 
-/* -------- Tabs (Clean Underline Style) -------- */
+/* -------- Metric Cards (Minimalist) -------- */
+[data-testid="stMetric"] {{
+  background-color: {CARD_BG};
+  border: 1px solid #F1F5F9;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}}
+
+[data-testid="stMetricLabel"] {{
+  color: #94A3B8 !important; /* Light gray label */
+  font-size: 0.85rem;
+  font-weight: 500;
+}}
+
+[data-testid="stMetricValue"] {{
+  color: {HEADER_COLOR} !important;
+  font-size: 1.8rem;
+}}
+
+/* -------- Tabs (Simple & Elegant) -------- */
 .stTabs [data-baseweb="tab-list"] {{
   background-color: transparent;
-  gap: 2rem;
   border-bottom: 1px solid #E2E8F0;
+  gap: 24px;
 }}
 
 .stTabs [data-baseweb="tab"] {{
   background-color: transparent;
-  color: {SUBTEXT_COLOR};
-  font-weight: 600;
-  padding-bottom: 1rem;
+  color: #64748B;
+  font-weight: 500;
   border: none;
+  padding-bottom: 12px;
 }}
 
 .stTabs [aria-selected="true"] {{
   color: {PRIMARY_COLOR} !important;
-  border-bottom: 3px solid {PRIMARY_COLOR};
+  border-bottom: 2px solid {PRIMARY_COLOR};
 }}
 
-/* -------- Metric Cards -------- */
-[data-testid="stMetric"] {{
-  background-color: {CARD_BG};
-  border: 1px solid #E2E8F0;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}}
-
-[data-testid="stMetricLabel"] {{
-  color: {SUBTEXT_COLOR} !important;
-  font-size: 0.9rem;
-}}
-
-[data-testid="stMetricValue"] {{
-  color: {TEXT_COLOR} !important;
-  font-weight: 700;
-}}
-
-/* -------- Buttons -------- */
+/* -------- Buttons (Subtle) -------- */
 .stButton > button {{
   background-color: {PRIMARY_COLOR};
   color: white;
   border-radius: 8px;
-  border: none;
-  padding: 0.6rem 1.2rem;
   font-weight: 500;
-  transition: all 0.2s;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  box-shadow: none;
 }}
 
 .stButton > button:hover {{
-  background-color: #1E40AF; /* Darker blue on hover */
-  transform: translateY(-1px);
+  background-color: #1D4ED8;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}}
+
+/* Sidebar tweaks to match */
+section[data-testid="stSidebar"] {{
+  background-color: #FFFFFF;
+  border-right: 1px solid #F1F5F9;
 }}
 
 </style>
