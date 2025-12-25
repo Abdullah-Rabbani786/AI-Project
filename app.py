@@ -20,14 +20,15 @@ st.set_page_config(
 )
 
 # =====================================================
-# MODERN LIGHT THEME (PRETTY + EYE FRIENDLY)
+# PROFESSIONAL CORPORATE THEME
 # =====================================================
-PRIMARY_COLOR = "#4F46E5"     # Indigo
-ACCENT_COLOR = "#38BDF8"      # Sky Blue
-BG_COLOR = "#F8FAFC"          # Soft Light Gray
-CARD_BG = "#FFFFFF"           # White Cards
-TEXT_COLOR = "#0F172A"        # Dark Slate
-SUBTEXT_COLOR = "#475569"     # Muted Gray
+# Using a Deep Navy & Slate palette for a clean, trustworthy look
+PRIMARY_COLOR = "#1E3A8A"     # Deep Navy Blue (Trustworthy)
+ACCENT_COLOR = "#3B82F6"      # Professional Blue (Highlight)
+BG_COLOR = "#F3F4F6"          # Very Light Cool Gray (Easy on eyes)
+CARD_BG = "#FFFFFF"           # Pure White
+TEXT_COLOR = "#111827"        # Near Black (High Contrast)
+SUBTEXT_COLOR = "#6B7280"     # Cool Gray
 
 st.markdown(f"""
 <style>
@@ -39,14 +40,15 @@ body {{
 
 /* Main layout spacing */
 .block-container {{
-  padding-top: 1.8rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }}
 
 /* -------- Typography -------- */
 h1, h2, h3, h4, h5, h6 {{
   color: {TEXT_COLOR} !important;
-  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
 }}
 
 p, label, span {{
@@ -56,12 +58,13 @@ p, label, span {{
 
 /* -------- Header Card -------- */
 .header-card {{
-  background: linear-gradient(135deg, {PRIMARY_COLOR}, {ACCENT_COLOR});
-  padding: 2.4rem;
-  border-radius: 20px;
-  margin-bottom: 2.5rem;
+  background-color: {PRIMARY_COLOR}; /* Solid professional color */
+  padding: 2rem;
+  border-radius: 8px; /* Sharper corners */
+  margin-bottom: 2rem;
   color: white;
-  box-shadow: 0 12px 30px rgba(79,70,229,0.25);
+  border-left: 6px solid {ACCENT_COLOR}; /* Professional accent strip */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }}
 
 /* -------- Sidebar -------- */
@@ -72,54 +75,57 @@ section[data-testid="stSidebar"] > div {{
 
 /* -------- Tabs -------- */
 .stTabs [data-baseweb="tab-list"] {{
-  background-color: #E5E7EB;
-  border-radius: 14px;
-  padding: 0.35rem;
+  background-color: transparent;
+  border-bottom: 2px solid #E5E7EB;
+  border-radius: 0px;
+  padding: 0;
+  gap: 20px;
 }}
 
 .stTabs [data-baseweb="tab"] {{
   background-color: transparent;
-  color: {TEXT_COLOR};
+  color: {SUBTEXT_COLOR};
   font-weight: 600;
-  border-radius: 12px;
-  padding: 0.6rem 1.5rem;
-  transition: all 0.2s ease-in-out;
+  border-radius: 0px;
+  padding: 0.8rem 1rem;
+  border: none;
+  transition: all 0.2s ease;
 }}
 
 .stTabs [aria-selected="true"] {{
-  background-color: {PRIMARY_COLOR};
-  color: white !important;
+  background-color: transparent;
+  color: {PRIMARY_COLOR} !important;
+  border-bottom: 3px solid {PRIMARY_COLOR}; /* Underline style for tabs */
 }}
 
 /* -------- Metric Cards -------- */
 [data-testid="stMetric"] {{
   background-color: {CARD_BG};
-  border-radius: 16px;
-  padding: 1.3rem;
+  border-radius: 8px; /* Sharper corners */
+  padding: 1rem;
   border: 1px solid #E5E7EB;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }}
 
 /* -------- Buttons -------- */
 .stButton > button {{
   background-color: {PRIMARY_COLOR};
   color: white;
-  border-radius: 12px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-weight: 500;
   border: none;
-  padding: 0.65rem 1.8rem;
-  transition: all 0.2s ease-in-out;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease-in-out;
 }}
 
 .stButton > button:hover {{
-  background-color: #4338CA;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(79,70,229,0.35);
+  background-color: {ACCENT_COLOR};
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }}
 
 </style>
 """, unsafe_allow_html=True)
-
 
 # =====================================================
 # HEADER
